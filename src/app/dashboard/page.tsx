@@ -1,5 +1,5 @@
 // src/app/dashboard/page.tsx
-"use client"
+
 import getServerSession from "next-auth"
 import { auth } from "@/lib/auth"
 import { redirect } from "next/navigation"
@@ -8,6 +8,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
 import { ExitIcon } from "@radix-ui/react-icons"
 import { signOut } from "next-auth/react"
+import SignOutButton from "@/components/signout-button"
 
 export default async function DashboardPage() {
    const session = await auth()
@@ -23,9 +24,7 @@ export default async function DashboardPage() {
           <Button variant="default" className="mt-4 sm:mt-0">
             Nueva Postulación
           </Button>
-           {/* <Button onClick={()=>signOut()} variant="default" className="mt-4 sm:mt-0">
-            <ExitIcon/>
-          </Button> */}
+          <SignOutButton/>
         </div>
       </div>
 
